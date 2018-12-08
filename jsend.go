@@ -101,11 +101,6 @@ func buildResponse(r *jsendResponse) ([]byte, error) {
 		} else {
 			resp["data"] = nil
 		}
-
-		// Optional.
-		if r.message != "" {
-			resp["message"] = r.message
-		}
 		break
 	case status == StatusError:
 		// Optional.

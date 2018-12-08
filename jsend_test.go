@@ -9,9 +9,9 @@ var testCases = []struct {
 	jsendResponse
 	expected string
 }{
-	{jsendResponse{message: "test1"}, `{"data":null,"message":"test1","status":"success"}`},
-	{jsendResponse{message: "test2", data: map[string]interface{}{"test": 2}}, `{"data":{"test":2},"message":"test2","status":"success"}`},
-	{jsendResponse{statusCode: 400, message: "test3", data: map[string]interface{}{"test": 3}}, `{"data":{"test":3},"message":"test3","status":"fail"}`},
+	{jsendResponse{message: "test1"}, `{"data":null,"status":"success"}`},
+	{jsendResponse{data: map[string]interface{}{"test": 2}}, `{"data":{"test":2},"status":"success"}`},
+	{jsendResponse{statusCode: 400, message: "test3", data: map[string]interface{}{"test": 3}}, `{"data":{"test":3},"status":"fail"}`},
 	{jsendResponse{statusCode: 500, code: 1, message: "test4", data: map[string]interface{}{"test": 4}}, `{"code":1,"data":{"test":4},"message":"test4","status":"error"}`},
 	{jsendResponse{statusCode: 500, code: 1}, `{"code":1,"message":"Undefined error","status":"error"}`},
 }
